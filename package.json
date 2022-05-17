@@ -1,0 +1,23 @@
+{
+  "name": "cypress-test",
+  "version": "1.0.0",
+  "description": "Cypress test for E2E, you know, ridin' in my Fiat, you know you wanna see it.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keilokimnida/cypress-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/keilokimnida/cypress-test/issues"
+  },
+  "homepage": "https://github.com/keilokimnida/cypress-test#readme",
+  "devDependencies": {
+    "cypress": "^9.6.1",
+    "typescript": "^4.6.4"
+  }
+}
