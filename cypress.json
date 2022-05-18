@@ -1,4 +1,7 @@
 {
     "video": false,
-    "baseUrl": "https://leleland-f88d7.web.app"
+    "baseUrl": "https://pre-dev-aftervpn.ship.gov.sg",
+    "defaultCommandTimeout": 10000,
+    "viewportWidth": 1280,
+    "viewportHeight": 800
 }

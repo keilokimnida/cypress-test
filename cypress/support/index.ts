@@ -13,6 +13,18 @@
 // https://on.cypress.io/configuration
 // ***********************************************************
 
+declare global {
+    namespace Cypress {
+      interface Chainable {
+        /**
+         * Custom command to do login via API
+         * @example Login('username', 'password)
+         */
+        Login(username?: string, password?: string): Chainable<Element>
+      }
+    }
+}
+
 // Import commands.js using ES2015 syntax:
 import './commands'
 

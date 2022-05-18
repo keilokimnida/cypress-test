@@ -1,25 +1,22 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+/**
+ * Custom command to do login via API.
+ *
+ * @param {string} [username] - Optional username.
+ * @param {string} [password] - Optional password.
+ * @return {undefined} - Nothing is returned.
+ *
+ * @example Login('username', 'password)
+ */
+Cypress.Commands.add('Login', (username, password) => {
+    cy.request({
+        method: 'POST',
+        url: `${Cypress.env().api.aftervpn}/portal-login`,
+        body: {'username': username ? username : Cypress.env().auth.username, 'password': password ? password : Cypress.env().auth.hashed_password}
+    }).then((response: any) => {
+        const { message, status } = response.body;
+        const token = message.token;
+        cy.window().then(win => {
+            sessionStorage.setItem("ship.portal.token", token);
+        })
+    });
+});
