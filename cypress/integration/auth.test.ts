@@ -21,12 +21,11 @@ describe('auth.test.ts|Login', () => {
         cy.get(".sgds-card button").contains("Login").click();
 
         // 6. Successfully logged in
-        cy.url().should('eq', Cypress.config().baseUrl + `/acc/${Cypress.env().auth.billing_acc_no}/`);
         cy.get("h3").contains("Overview");
-
+        cy.url().should('eq', Cypress.config().baseUrl + `/acc/${Cypress.env().auth.billing_acc_no}/`);
     });
 
-    it('Sucess|API Call', () => {
+    it.skip('Sucess|API Call', () => {
         // 1. Login via api
         cy.Login();
 
@@ -35,7 +34,7 @@ describe('auth.test.ts|Login', () => {
         cy.get("h3").contains("Overview");
     });
 
-    it('Sucess|Techpass', () => {
+    it.skip('Sucess|Techpass', () => {
         // 1. Visit home page
         cy.visit("/");
 
